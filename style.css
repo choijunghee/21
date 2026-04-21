@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; 
+    font-family: 'Pretendard', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.canvas-holder {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: pan-x pan-y; 
+}
+
+.book {
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    background-color: white;
+}
+
+.page {
+    background-color: white;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.page-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 하단 페이지 번호 표시줄 */
+.controls {
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    z-index: 10;
+}
+
+#pageIdx {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.page-num {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+}
+
+/* 마지막 페이지 '처음으로' 버튼 */
+.last-page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.page:hover .last-page-overlay {
+    opacity: 1;
+}
+
+.retry-btn {
+    padding: 12px 25px;
+    border: none;
+    background: #ff4757;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .canvas-holder {
+        height: 75vh;
+    }
+}
